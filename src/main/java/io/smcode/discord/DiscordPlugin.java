@@ -10,11 +10,17 @@ public class DiscordPlugin extends JavaPlugin {
         final List<WebhookPayload.Embed> embeds = List.of(WebhookPayload.Embed.builder()
                 .title("My embed")
                 .description("My description")
+                .author(WebhookPayload.Author.of(getPluginMeta().getAuthors().get(0)))
                 .fields(List.of(
-                        WebhookPayload.Field.builder()
-                                .name("My field title")
-                                .value("This is a very important message")
-                                .build())
+                                WebhookPayload.Field.builder()
+                                        .name("My field title")
+                                        .value("This is a very important message")
+                                        .build(),
+                                WebhookPayload.Field.builder()
+                                        .name("Second field")
+                                        .value("Lol")
+                                        .build()
+                        )
                 )
                 .build()
         );
